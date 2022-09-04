@@ -1,0 +1,10 @@
+.profile__avatar {
+  width: 168.75px;
+  height: 127.5px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__avatar {
+    align-self: center;
+  }
+}
