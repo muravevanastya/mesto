@@ -1,0 +1,22 @@
+.element__like {
+  background-image: url(../../../images/heart.svg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 22px 19px;
+  width: 22px;
+  height: 19px;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  align-self: center;
+}
+
+.element__like:hover {
+  opacity: 0.5;
+}
+
+.element__like:active {
+  background-image: url(../../../../images/black_heart.svg);
+  opacity: 1;
+}
+
