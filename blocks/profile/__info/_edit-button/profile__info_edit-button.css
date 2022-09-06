@@ -11,9 +11,7 @@
   margin: 15px 0 0 0;
 }
 
-.profile__info_edit-button:hover {
-  opacity: 0.6;
-}
+
 
 @media screen and (max-width: 500px) {
   .profile__info_edit-button {
