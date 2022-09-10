@@ -11,3 +11,10 @@
   margin: auto;
   position: relative;
 }
+
+@media screen and (max-width: 580px) {
+  .popup {
+    max-width: 238px;
+    padding: 25px 22px;
+  }
+}
