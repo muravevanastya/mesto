@@ -15,7 +15,7 @@
     <main class="content">
       <div class="profile">
         <div class="profile__avatar">
-          <img src="./images/image.jpg" alt="Фото Жак-Ив Кусто" class="profile__ellipse">
+          <img src="./images/image.jpg" alt="Жак-Ив Кусто" class="profile__ellipse">
         </div>
         <div class="profile__info">
           <h1 class="profile__info_name">Жак-Ив Кусто</h1>
@@ -68,10 +68,24 @@
           </div>
         </div>
       </section>
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2022 Анастасия Муравьева</p>
-      </footer>
     </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022 Анастасия Муравьева</p>
+    </footer>
   </div>
+  <section class="overlay">
+    <div class="popup">
+      <button class="popup__close-button" type="button">
+        <img src="./images/Close Icon.svg" alt="Крестик" class="popup__cross">
+      </button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form">
+        <input class="popup__input popup__input_name" type="text" name="name" placeholder="Жак-Ив Кусто">
+        <input class="popup__input popup__input_job" type="text" name="description" placeholder="Исследователь океана">
+      </form>
+      <button class="popup__save-button" type="submit" id="submit">Сохранить</button>
+    </div>
+  </section>
+  <script src="./scripts/main.js"></script>
 </body>
 </html>
