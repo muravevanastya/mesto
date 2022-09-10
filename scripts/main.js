@@ -5,9 +5,9 @@ const nameInput = formElement.querySelector('.popup__input_name');
 const jobInput = formElement.querySelector('.popup__input_job');
 
 const profile = document.querySelector('.profile');
-const openEditButton = profile.querySelector('.profile__info_edit-button');
-const profileName = profile.querySelector('.profile__info_name');
-const profileJob = profile.querySelector('.profile__info_text');
+const openEditButton = profile.querySelector('.profile__info-edit-button');
+const profileName = profile.querySelector('.profile__info-name');
+const profileJob = profile.querySelector('.profile__info-text');
 
 function overlayOpen() {
   overlayEl.classList.add('overlay_opened');
