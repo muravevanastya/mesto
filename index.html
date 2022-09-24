@@ -73,7 +73,7 @@
       <p class="footer__copyright">&copy; 2022 Анастасия Муравьева</p>
     </footer>
   </div>
-  <section class="popup">
+  <div class="popup popup_type_edit">
     <div class="popup__container">
       <button class="popup__close-button" type="button">
         <img src="./images/Close_Icon.svg" alt="Крестик" class="popup__cross">
@@ -85,7 +85,21 @@
       </form>
       <button class="popup__save-button" type="submit">Сохранить</button>
     </div>
-  </section>
+  </div>
+  <div class="popup popup_type_add">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button">
+        <img src="./images/Close_Icon.svg" alt="Крестик" class="popup__cross">
+      </button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form" name="popupEditForm">
+        <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Название">
+        <input class="popup__input popup__input_type_job" type="text" name="Ссылка на картинку">
+      </form>
+      <button class="popup__save-button" type="submit">Сохранить</button>
+    </div>
+  </div>
+  
   <script src="./scripts/index.js"></script>
 </body>
 </html>
