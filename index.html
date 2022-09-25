@@ -26,6 +26,9 @@
       </div>
       <section class="elements">
         <div class="element">
+          <button class="element__delete" type="button">
+            <img src="./images/Trash.svg" alt="Мусорное ведро" class="element__trashcan">
+          </button>
           <img src="./images/mertvoe_more.jpg" alt="Мёртвое море" class="element__image">
           <div class="element__description">
             <h2 class="element__title">Мёртвое море</h2>
@@ -33,6 +36,9 @@
           </div>
         </div>
         <div class="element">
+          <button class="element__delete" type="button">
+            <img src="./images/Trash.svg" alt="Мусорное ведро" class="element__trashcan">
+          </button>
           <img src="./images/bolshoy_canyon.jpg" alt="Гранд-Каньон" class="element__image">
           <div class="element__description">
             <h2 class="element__title">Гранд-Каньон</h2>
@@ -40,6 +46,9 @@
           </div>
         </div>
         <div class="element">
+          <button class="element__delete" type="button">
+            <img src="./images/Trash.svg" alt="Мусорное ведро" class="element__trashcan">
+          </button>
           <img src="./images/utesy_moher.jpg" alt="Утёсы Мохер" class="element__image">
           <div class="element__description">
             <h2 class="element__title">Утёсы Мохер</h2>
@@ -47,6 +56,9 @@
           </div>
         </div>
         <div class="element">
+          <button class="element__delete" type="button">
+            <img src="./images/Trash.svg" alt="Мусорное ведро" class="element__trashcan">
+          </button>
           <img src="./images/vulkan_bromo.jpg" alt="Вулкан Бромо" class="element__image">
           <div class="element__description">
             <h2 class="element__title">Вулкан Бромо</h2>
@@ -54,6 +66,9 @@
           </div>
         </div>
         <div class="element">
+          <button class="element__delete" type="button">
+            <img src="./images/Trash.svg" alt="Мусорное ведро" class="element__trashcan">
+          </button>
           <img src="./images/ozero_spencer.jpg" alt="Озеро Спенсер" class="element__image">
           <div class="element__description">
             <h2 class="element__title">Озеро Спенсер</h2>
@@ -61,6 +76,9 @@
           </div>
         </div>
         <div class="element">
+          <button class="element__delete" type="button">
+            <img src="./images/Trash.svg" alt="Мусорное ведро" class="element__trashcan">
+          </button>
           <img src="./images/pamukkale.jpeg" alt="Памуккале" class="element__image">
           <div class="element__description">
             <h2 class="element__title">Памуккале</h2>
@@ -96,10 +114,30 @@
         <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Название">
         <input class="popup__input popup__input_type_job" type="text" name="Ссылка на картинку">
       </form>
-      <button class="popup__save-button" type="submit">Сохранить</button>
+      <button class="popup__save-button" type="submit">Создать</button>
     </div>
   </div>
-  
+<div class="popup popup_type_image">
+  <div class="popup-image__container">
+    <h2 class="popup-image__title"></h2>
+    <img class="popup-image__image" src="none" alt="none">
+    <button class="popup__close-button" type="button">
+      <img src="./images/Close_Icon.svg" alt="Крестик" class="popup__cross">
+    </button>
+  </div>
+</div>
+  <template class="elements-template">
+    <div class="element">
+      <button class="element__delete" type="button">
+        <img class="element__trashcan">
+      </button>
+      <img class="element__image" src="none" alt="none">
+      <div class="element__description">
+        <h2 class="element__title"></h2>
+        <button class="element__like" type="button"></button>
+      </div>
+    </div>
+  </template>>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
