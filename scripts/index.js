@@ -108,14 +108,13 @@ addCloseButton.addEventListener('click', () => {
 
 
 
-
 function elementSubmitHandler(evt) {
   evt.preventDefault();
 
   const card = addElement(placeInput.value, imageInput.value);
 
   elements.prepend(card);
-  // renderCard(placeInput.value, imageInput.value);
+
   popupClose(popupAdd);
 };
 
@@ -140,16 +139,12 @@ function addElement(name, link) {
   });
 
   likeButton.addEventListener('click', (evt) => {
-    evt.target.classList.toggle('element__like:active');
+    evt.target.classList.toggle('element__like_active');
   });
 
   return newElement;
 };
 
-// function renderCard(name, link) {
-//   const card = addElement(name, link);
-//   elements.prepend(card);
-// };
 
 initialCards.forEach((item) => {
   const card = addElement(item.name, item.link);
