@@ -25,59 +25,15 @@
         <button type="button" class="profile__add-button"></button>
       </div>
       <section class="elements">
-        <div class="element">
-          <img src="./images/mertvoe_more.jpg" alt="Мёртвое море" class="element__image">
-          <div class="element__description">
-            <h2 class="element__title">Мёртвое море</h2>
-            <button type="button" class="element__like element__like_active"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/bolshoy_canyon.jpg" alt="Гранд-Каньон" class="element__image">
-          <div class="element__description">
-            <h2 class="element__title">Гранд-Каньон</h2>
-            <button type="button" class="element__like element__like_active"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/utesy_moher.jpg" alt="Утёсы Мохер" class="element__image">
-          <div class="element__description">
-            <h2 class="element__title">Утёсы Мохер</h2>
-            <button type="button" class="element__like element__like_active"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/vulkan_bromo.jpg" alt="Вулкан Бромо" class="element__image">
-          <div class="element__description">
-            <h2 class="element__title">Вулкан Бромо</h2>
-            <button type="button" class="element__like element__like_active"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/ozero_spencer.jpg" alt="Озеро Спенсер" class="element__image">
-          <div class="element__description">
-            <h2 class="element__title">Озеро Спенсер</h2>
-            <button type="button" class="element__like element__like_active"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/pamukkale.jpeg" alt="Памуккале" class="element__image">
-          <div class="element__description">
-            <h2 class="element__title">Памуккале</h2>
-            <button type="button" class="element__like element__like_active"></button>
-          </div>
-        </div>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Анастасия Муравьева</p>
     </footer>
   </div>
-  <section class="popup">
+  <div class="popup popup_type_edit">
     <div class="popup__container">
-      <button class="popup__close-button" type="button">
-        <img src="./images/Close_Icon.svg" alt="Крестик" class="popup__cross">
-      </button>
+      <button class="popup__close-button" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="popupEditForm">
         <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Жак-Ив Кусто">
@@ -85,7 +41,37 @@
       </form>
       <button class="popup__save-button" type="submit">Сохранить</button>
     </div>
-  </section>
+  </div>
+  <div class="popup popup_type_add">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form" name="popupEditForm">
+        <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Название">
+        <input class="popup__input popup__input_type_job" type="text" name="Ссылка на картинку">
+      </form>
+      <button class="popup__save-button" type="submit">Создать</button>
+    </div>
+  </div>
+  <div class="popup popup_type_image">
+    <div class="popup__image-container">
+      <button class="popup__close-button" type="button"></button>
+      <img class="popup__image-open" src="none" alt="none">
+      <p class="popup__image-title"></p>
+    </div>
+  </div>
+  <template class="elements-template">
+    <div class="element">
+      <button class="element__delete" type="button">
+        <img class="element__trashcan">
+      </button>
+      <img class="element__image" src="none" alt="none">
+      <div class="element__description">
+        <h2 class="element__title"></h2>
+        <button class="element__like" type="button"></button>
+      </div>
+    </div>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
