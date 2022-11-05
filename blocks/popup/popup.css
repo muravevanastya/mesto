@@ -4,6 +4,11 @@
   height: 100%;
   left: 0;
   top: 0;
-  position: absolute;
-  display: none;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .20s linear, opacity .20s linear;
 }
