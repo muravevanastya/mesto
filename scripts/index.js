@@ -157,5 +157,5 @@ initialCards.forEach((item) => {
 });
 
 
-addForm.addEventListener('submit', handleCardFormSubmit);
+
 
