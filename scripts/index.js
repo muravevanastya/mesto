@@ -5,6 +5,7 @@ const popupImage = document.querySelector('.popup_type_image');
 
 const editCloseButton = popupEdit.querySelector('.popup__close-button');
 const addCloseButton = popupAdd.querySelector('.popup__close-button');
+const imageCloseButton = popupImage.querySelector('.popup__close-button')
 const elementCloseButton =popupImage.querySelector('.popup__close-button')
 
 const editSaveButton = popupEdit.querySelector('.popup__save-button')
@@ -31,7 +32,9 @@ const formElement = document.querySelector('.popup__form');
 
 const elementsTemplate = document.querySelector('.elements-template').content;
 const elements = document.querySelector('.elements');
-// const element = elementsTemplate.querySelector('.element');
+
+const popupImageTitle = popupImage.querySelector('.popup__image-title');
+const popupImageOpen = popupImage.querySelector('.popup__image-open');
 
 
 const initialCards = [
@@ -103,6 +106,10 @@ addCloseButton.addEventListener('click', () => {
   popupClose(popupAdd);
 });
 
+imageCloseButton.addEventListener('click', () => {
+  popupClose(popupImage);
+})
+
 
 
 
@@ -128,6 +135,7 @@ function addElement(name, link) {
 
   const deleteButton = newElement.querySelector('.element__delete');
   const likeButton = newElement.querySelector('.element__like');
+  const image = newElement.querySelector('.element__image');
 
 
   newElementTitle.textContent = name;
@@ -140,6 +148,13 @@ function addElement(name, link) {
 
   likeButton.addEventListener('click', (evt) => {
     evt.target.classList.toggle('element__like_active');
+  });
+
+  image.addEventListener('click', () => {
+    popupOpen(popupImage);
+    popupImageTitle.textContent = name;
+    popupImageOpen.alt = name;
+    popupImageOpen.src = link;
   });
 
   return newElement;
