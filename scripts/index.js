@@ -113,15 +113,10 @@ imageCloseButton.addEventListener('click', () => {
 
 
 
-
-
 function elementSubmitHandler(evt) {
   evt.preventDefault();
-
   const card = addElement(placeInput.value, imageInput.value);
-
   elements.prepend(card);
-
   popupClose(popupAdd);
 };
 
@@ -167,14 +162,8 @@ initialCards.forEach((item) => {
 });
 
 
-
 createAddButton.addEventListener('click', elementSubmitHandler);
 popupAdd.addEventListener('submit', elementSubmitHandler);
 
-
-// function likeHandler(evt) {
-//   const elementLike = evt.target.closest('.element__like');
-//   elementLike.classList.toggle('.element__like_active');
-// };
 
 
