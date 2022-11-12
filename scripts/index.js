@@ -159,3 +159,23 @@ initialCards.forEach((item) => {
 
 addForm.addEventListener('submit', handleCardFormSubmit);
 
+
+
+function handleClosePopupByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup)
+  };
+};
+
+
+function handleClosePopupByOverlayClick(evt) {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  };
+};
+
+
+document.addEventListener('keydown', handleClosePopupByEsc);
+
+document.addEventListener('click', handleClosePopupByOverlayClick);
