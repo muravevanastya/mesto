@@ -110,8 +110,7 @@ function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const card = addElement(placeInput.value, imageInput.value);
   cardSection.prepend(card);
-  evt.submitter.classList.add('popup__save-button_disabled');
-  evt.submitter.setAttribute('disabled', true);
+
   placeInput.value = '';
   imageInput.value = '';
   closePopup(popupAddCard);
