@@ -41,9 +41,15 @@ class Card {
     openPopup(popupImage);
   }
 
-  
+  _likeCard(evt) {
+    const likeButton = evt.target.closest('.element__like');
+    likeButton.classList.toggle('element__like_active');
+  }
 
-  _setListeners() {
+  _setListeners(card) {
+    this._newElementImage.addEventListener('click', () => this._openCardImage(this._newElement));
 
+    const cardLike = card.querySelector('.element__like');
+    cardLike.addEventListener('click', this._likeCard);
   }
 }
