@@ -42,14 +42,22 @@ class Card {
   }
 
   _likeCard(evt) {
-    const likeButton = evt.target.closest('.element__like');
-    likeButton.classList.toggle('element__like_active');
+    const cardLike = evt.target.closest('.element__like');
+    cardLike.classList.toggle('element__like_active');
+  }
+
+  _deleteCard(evt) {
+    const cardDelete = evt.target.closest('.element');
+    cardDelete.remove();
   }
 
   _setListeners(card) {
     this._newElementImage.addEventListener('click', () => this._openCardImage(this._newElement));
 
-    const cardLike = card.querySelector('.element__like');
-    cardLike.addEventListener('click', this._likeCard);
+    const likeButton = card.querySelector('.element__like');
+    likeButton.addEventListener('click', this._likeCard);
+
+    const deleteButton = card.querySelector('.element__delete');
+    deleteButton.addEventListener('click', this._deleteCard);
   }
 }
