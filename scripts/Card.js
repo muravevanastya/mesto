@@ -1,4 +1,10 @@
-import * from './constants';
+import {
+  popupImageTitle,
+  popupImageOpen,
+  popupImage
+} from './constants';
+
+import {openPopup} from './index';
 
 class Card {
   constructor(card, templateSelector) {
@@ -25,8 +31,17 @@ class Card {
   }
 
   _openCardImage(card) {
+    const newElementImage = card.querySelector('.element__image');
+    const newElementTitle = card.querySelector('.element__title');
 
+    popupImageTitle.textContent = newElementTitle.textContent;
+    popupImageOpen.alt = newElementImage.alt;
+    popupImageOpen.src = newElementImage.src;
+
+    openPopup(popupImage);
   }
+
+  
 
   _setListeners() {
 
