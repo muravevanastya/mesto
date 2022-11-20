@@ -1,31 +1,36 @@
+import FormValidator from './FormValidator.js';
 
+import Card from './Card.js';
 
-const initialCards = [
-  {
-    name: 'Памуккале',
-    link: 'https://www.nationalturk.com/en/wp-content/uploads/2022/05/pamukkale-turkey.jpg'
-  },
-  {
-    name: 'Озеро Спенсер',
-    link: 'https://ifbest.org/uploads/images/2021/11/image_750x_619a50a9df9e8.jpg'
-  },
-  {
-    name: 'Вулкан Бромо',
-    link: 'https://sun9-83.userapi.com/impf/1q7uw-Az3foBorQqZgSYgFu_zcK5FhHs2M2rQg/zZvS4yIrvjw.jpg?size=1600x956&quality=96&sign=28753ee71b1a80032fa55287cb035520&c_uniq_tag=t9BW8yE4YoUAbYOor_Ad5bU0XZL9mYP-dW3tu7BsDV8&type=album'
-  },
-  {
-    name: 'Утёсы Мохер',
-    link: 'https://pibig.info/uploads/posts/2022-03/thumbs/1646705299_17-pibig-info-p-otvesnaya-skala-priroda-krasivo-foto-26.jpg'
-  },
-  {
-    name: 'Гранд-Каньон',
-    link: 'https://planettravel24.com/wp-content/uploads/2018/01/bolshoj-kanon-arizona.jpg'
-  },
-    {
-    name: 'Мёртвое море',
-    link: 'https://traveltimes.ru/wp-content/uploads/2021/07/1020x0_unbvkyltrihbtvfm_jpg_9a38.jpg'
-  },
-];
+import { initialCards } from './cards.js';
+
+import {
+  popupEditProfile,
+  popupAddCard,
+  popupImage,
+  editCloseButton,
+  addCloseButton,
+  imageCloseButton,
+  formEditProfile,
+  nameInput,
+  jobInput,
+  formAddCard,
+  placeInput,
+  imageInput,
+  profileName,
+  profileJob,
+  editOpenButton,
+  addOpenButton,
+  elementsTemplate,
+  cardSection,
+  validationSettings
+} from './constants.js';
+
+const validationPopupEditProfile = new FormValidator(popupEditProfile, validationSettings);
+const validationPopupAddCard = new FormValidator(popupAddCard, validationSettings);
+
+validationPopupEditProfile.enableValidation();
+validationPopupAddCard.enableValidation();
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -36,7 +41,7 @@ function handleProfileFormSubmit(evt) {
 
 formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
-function openPopup(popup) {
+export function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handleClosePopupByEsc);
   document.addEventListener('click', handleClosePopupByOverlayClick);
@@ -68,54 +73,36 @@ addCloseButton.addEventListener('click', () => {
 
 imageCloseButton.addEventListener('click', () => {
   closePopup(popupImage);
-})
+});
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const card = addElement(placeInput.value, imageInput.value);
-  cardSection.prepend(card);
+  const card = {
+    name: placeInput.value,
+    link: imageInput.value
+  };
+
   evt.submitter.classList.add('popup__save-button_disabled');
   evt.submitter.setAttribute('disabled', true);
   placeInput.value = '';
   imageInput.value = '';
+
+  renderCard(createCard(card));
   closePopup(popupAddCard);
 };
 
-function addElement(name, link) {
-  const newElement = elementsTemplate.querySelector('.element').cloneNode(true);
-
-  const newElementTitle = newElement.querySelector('.element__title');
-  const newElementImage = newElement.querySelector('.element__image');
-
-  const deleteButton = newElement.querySelector('.element__delete');
-  const likeButton = newElement.querySelector('.element__like');
-
-  newElementTitle.textContent = name;
-  newElementImage.alt = name;
-  newElementImage.src = link;
-
-  deleteButton.addEventListener('click', () => {
-    newElement.remove();
-  });
-
-  likeButton.addEventListener('click', (evt) => {
-    evt.target.classList.toggle('element__like_active');
-  });
-
-  newElementImage.addEventListener('click', () => {
-    openPopup(popupImage);
-    popupImageTitle.textContent = name;
-    popupImageOpen.alt = name;
-    popupImageOpen.src = link;
-  });
-
-  return newElement;
+const renderCard = (cardItem) => {
+  cardSection.prepend(cardItem.generateCard());
 };
 
 initialCards.forEach((item) => {
-  const card = addElement(item.name, item.link);
-  cardSection.prepend(card);
+  renderCard(createCard(item));
 });
+
+function createCard(card) {
+  const cardItem = new Card(card, elementsTemplate);
+  return cardItem;
+};
 
 formAddCard.addEventListener('submit', handleCardFormSubmit);
 

@@ -35,6 +35,15 @@ const cardSection = document.querySelector('.elements');
 const popupImageTitle = popupImage.querySelector('.popup__image-title');
 const popupImageOpen = popupImage.querySelector('.popup__image-open');
 
+const validationSettings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error'
+};
+
 export {
   popupEditProfile,
   popupAddCard,
@@ -62,5 +71,6 @@ export {
   elementsTemplate,
   cardSection,
   popupImageTitle,
-  popupImageOpen
+  popupImageOpen,
+  validationSettings
 };

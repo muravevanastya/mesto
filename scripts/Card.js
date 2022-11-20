@@ -2,18 +2,18 @@ import {
   popupImageTitle,
   popupImageOpen,
   popupImage
-} from './constants';
+} from './constants.js';
 
-import {openPopup} from './index';
+import {openPopup} from './index.js';
 
-class Card {
+export default class Card {
   constructor(card, templateSelector) {
-    this._newElement = this._getTemplate();
-    this._newElementImage = this._newElement.querySelector('.element__image');
-    this._newElementTitle = this._newElement.querySelector('.element__title');
     this._name = card.name;
     this._link = card.link;
     this._templateSelector = templateSelector;
+    this._newElement = this._getTemplate();
+    this._newElementImage = this._newElement.querySelector('.element__image');
+    this._newElementTitle = this._newElement.querySelector('.element__title');
   }
 
   _getTemplate() {
@@ -24,7 +24,7 @@ class Card {
   generateCard() {
     this._newElementTitle.textContent = this._name;
     this._newElementImage.alt = this._name;
-    this._newElementImage.src = this.link;
+    this._newElementImage.src = this._link;
 
     this._setListeners(this._newElement);
     return this._newElement;
