@@ -30,13 +30,10 @@ export default class Card {
     return this._newElement;
   }
 
-  _openCardImage(card) {
-    const newElementImage = card.querySelector('.element__image');
-    const newElementTitle = card.querySelector('.element__title');
-
-    popupImageTitle.textContent = newElementTitle.textContent;
-    popupImageOpen.alt = newElementImage.alt;
-    popupImageOpen.src = newElementImage.src;
+  _openCardImage() {
+    popupImageTitle.textContent = this._newElementTitle.textContent;
+    popupImageOpen.alt = this._newElementImage.alt;
+    popupImageOpen.src = this._newElementImage.src;
 
     openPopup(popupImage);
   }
@@ -46,9 +43,9 @@ export default class Card {
     cardLike.classList.toggle('element__like_active');
   }
 
-  _deleteCard(evt) {
-    const cardDelete = evt.target.closest('.element');
-    cardDelete.remove();
+  _deleteCard() {
+    this._newElement.remove();
+    this._newElement = null;
   }
 
   _setListeners(card) {
@@ -57,7 +54,8 @@ export default class Card {
     const likeButton = card.querySelector('.element__like');
     likeButton.addEventListener('click', this._likeCard);
 
-    const deleteButton = card.querySelector('.element__delete');
-    deleteButton.addEventListener('click', this._deleteCard);
+    if (this._newElement.querySelector('.element__delete')) {
+      this._newElement.querySelector('.element__delete').addEventListener('click', () => this._deleteCard());
+    }
   }
 }
