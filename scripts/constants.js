@@ -28,6 +28,7 @@ const addOpenButton = profile.querySelector('.profile__add-button');
 const elementsContainer = document.querySelector('.popup__container');
 const createAddButton = popupAddCard.querySelector('.popup__save-button');
 const profileForm = document.querySelector('.popup__form');
+const addForm = document.querySelector('.popup__form');
 
 const elementsTemplate = document.querySelector('.elements-template').content;
 const cardSection = document.querySelector('.elements');
@@ -68,6 +69,7 @@ export {
   elementsContainer,
   createAddButton,
   profileForm,
+  addForm,
   elementsTemplate,
   cardSection,
   popupImageTitle,
