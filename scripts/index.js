@@ -2,8 +2,8 @@ import FormValidator from './FormValidator.js';
 import Card from './Card.js';
 import { initialCards } from './cards.js';
 import Section from './Section.js';
-import Popup from './Popup.js';
 import PopupWithImage from './PopupWithImage.js';
+import PopupWithForm from './PopupWithForm.js';
 
 import {
   popupEditProfile,
@@ -54,34 +54,34 @@ formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 //   document.removeEventListener('click', handleClosePopupByOverlayClick);
 // };
 
-editOpenButton.addEventListener('click', () => {
-  openEditPopup();
-});
+// editOpenButton.addEventListener('click', () => {
+//   openEditPopup();
+// });
 
-function openEditPopup() {
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  openPopup(popupEditProfile);
-};
+// function openEditPopup() {
+//   nameInput.value = profileName.textContent;
+//   jobInput.value = profileJob.textContent;
+//   openPopup(popupEditProfile);
+// };
 
-addOpenButton.addEventListener('click', () => {
-  openAddPopup();
-});
+// addOpenButton.addEventListener('click', () => {
+//   openAddPopup();
+// });
 
-function openAddPopup() {
-  validationPopupAddCard.disableSubmitButton();
-  placeInput.value = '';
-  imageInput.value = '';
-  openPopup(popupAddCard);
-};
+// function openAddPopup() {
+//   validationPopupAddCard.disableSubmitButton();
+//   placeInput.value = '';
+//   imageInput.value = '';
+//   openPopup(popupAddCard);
+// };
 
-editCloseButton.addEventListener('click', () => {
-  closePopup(popupEditProfile);
-});
+// editCloseButton.addEventListener('click', () => {
+//   closePopup(popupEditProfile);
+// });
 
-addCloseButton.addEventListener('click', () => {
-  closePopup(popupAddCard);
-});
+// addCloseButton.addEventListener('click', () => {
+//   closePopup(popupAddCard);
+// });
 
 // imageCloseButton.addEventListener('click', () => {
 //   closePopup(popupImage);
@@ -123,6 +123,11 @@ function createCard(card) {
 
 formAddCard.addEventListener('submit', handleCardFormSubmit);
 
+const popupEdit = new PopupWithForm('.popup_type_edit', handleProfileFormSubmit);
+popupEdit.setEventListeners();
+
+const popupAdd = new PopupWithForm('.popup_type_add', handleCardFormSubmit);
+popupAdd.setEventListeners();
 // function handleClosePopupByEsc(evt) {
 //   if (evt.key === 'Escape') {
 //     const openedPopup = document.querySelector('.popup_opened');
