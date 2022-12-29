@@ -26,6 +26,7 @@ import {
   cardSection,
   validationSettings
 } from './constants.js';
+import UserInfo from './UserInfo.js';
 
 const validationPopupEditProfile = new FormValidator(popupEditProfile, validationSettings);
 const validationPopupAddCard = new FormValidator(popupAddCard, validationSettings);
@@ -33,14 +34,23 @@ const validationPopupAddCard = new FormValidator(popupAddCard, validationSetting
 validationPopupEditProfile.enableValidation();
 validationPopupAddCard.enableValidation();
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-  closePopup(popupEditProfile);
+function handleProfileButtonClick() {
+  const userInfoObj = userInfo.getUserInfo();
+  nameInput.value = userInfoObj.name;
+  jobInput.value = userInfoObj.job;
+  popupEdit.open();
+}
+
+function handleProfileFormSubmit(inputValue) {
+  // evt.preventDefault();
+  // profileName.textContent = nameInput.value;
+  // profileJob.textContent = jobInput.value;
+  // closePopup(popupEditProfile);
+  userInfo.setUserInfo(inputValue.name, inputValue.description);
+  popupEdit.close();
 };
 
-formEditProfile.addEventListener('submit', handleProfileFormSubmit);
+// formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
 // export function openPopup(popup) {
 //   popup.classList.add('popup_opened');
@@ -123,11 +133,18 @@ function createCard(card) {
 
 formAddCard.addEventListener('submit', handleCardFormSubmit);
 
+
 const popupEdit = new PopupWithForm('.popup_type_edit', handleProfileFormSubmit);
 popupEdit.setEventListeners();
+editOpenButton.addEventListener('click', handleProfileButtonClick);
+
 
 const popupAdd = new PopupWithForm('.popup_type_add', handleCardFormSubmit);
 popupAdd.setEventListeners();
+addOpenButton.addEventListener('click', () => popupAdd.open())
+
+const userInfo = new UserInfo({nameInfo: '.profile__info-name', jobInfo: '.profile__info-text'});
+
 // function handleClosePopupByEsc(evt) {
 //   if (evt.key === 'Escape') {
 //     const openedPopup = document.querySelector('.popup_opened');
