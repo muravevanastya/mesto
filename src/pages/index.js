@@ -12,8 +12,8 @@ import {
   popupAddCard,
   nameInput,
   jobInput,
-  editOpenButton,
-  addOpenButton,
+  popupProfileOpenButton,
+  popupAddOpenButton,
   elementsTemplate,
   validationSettings
 } from '../components/constants';
@@ -62,12 +62,12 @@ cardsContainer.renderItems();
 
 const popupEdit = new PopupWithForm('.popup_type_edit', handleProfileFormSubmit);
 popupEdit.setEventListeners();
-editOpenButton.addEventListener('click', handleProfileButtonClick);
+popupProfileOpenButton.addEventListener('click', handleProfileButtonClick);
 
 
 const popupAdd = new PopupWithForm('.popup_type_add', handleCardFormSubmit);
 popupAdd.setEventListeners();
-addOpenButton.addEventListener('click', () => popupAdd.open())
+popupAddOpenButton.addEventListener('click', () => popupAdd.open())
 
 const userInfo = new UserInfo({nameInfo: '.profile__info-name', jobInfo: '.profile__info-text'});
 
