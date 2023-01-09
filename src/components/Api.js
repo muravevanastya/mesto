@@ -27,15 +27,16 @@ export default class Api {
     .then(this._checkResponse)
   }
 
-  setUserInfoApi(userData) {
+  setUserInfoApi({name, descrption}) {
     return fetch(this._baseUrl + '/users/me', {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: userData.name,
-        about: userData.descrption
+        name: name,
+        about: descrption
       })
     })
+    .then(this._checkResponse)
   }
 
   addUserCard(data) {
@@ -67,5 +68,21 @@ export default class Api {
       })
     })
     .then(this._checkResponse);
+  }
+
+  addLike(id) {
+    return fetch(this._baseUrl + `/cards/${id}/likes`, {
+      method: 'PUT',
+      headers: this._headers
+    })
+    .then(this._checkResponse)
+  }
+
+  deleteLike(id) {
+    return fetch(this._baseUrl + `/cards/${id}/likes`, {
+      method: 'DELETE',
+      headers: this._headers
+    })
+    .then(this._checkResponse)
   }
 }

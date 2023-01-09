@@ -1,6 +1,6 @@
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
-import { initialCards } from '../components/cards.js';
+// import { initialCards } from '../components/cards.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -33,7 +33,7 @@ const api = new Api({
     'Content-Type': 'application/json'
   }
 })
-Promise.all([api.getInitialCards(), api.getUserInfo()])
+Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([info, initialCards]) => {
     userInfo.setUserInfo(info);
     userId = info._id;
@@ -148,12 +148,30 @@ function createCard(card) {
       .catch(err => console.log(err));
     });
     confirmDeletePopup.open();
-  }, userId);
+  },
+  () => {
+    if (!cardItem.isLiked()) {
+      api.addLike(card._id)
+        .then(card => {
+          cardItem.updateData(card);
+          cardItem.updateShowedLikes();
+        })
+        .catch(err => console.log(err));
+    } else {
+      api.deleteLike(card._id)
+        .then(card => {
+          cardItem.updateData(card);
+          cardItem.updateShowedLikes();
+        })
+        .catch(err => console.log(err));
+    }
+  },
+  userId);
   const cardElement = cardItem.generateCard();
   return cardElement;
 };
 
-const cardsContainer = new Section({items: initialCards, renderer: renderCard}, '.elements');
+const cardsContainer = new Section(renderCard, '.elements');
 // cardsContainer.renderItems();
 
 const popupEdit = new PopupWithForm('.popup_type_edit', handleProfileFormSubmit);

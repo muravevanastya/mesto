@@ -51,3 +51,5 @@
 @import url(../blocks/popup/__avatar-error/popup__avatar-error.css);
 @import url(../blocks/profile/__ellipse-pencil/profile__ellipse-pencil.css);
 @import url(../blocks/profile/__avatar-wrapper/profile__avatar-wrapper.css);
+@import url(../blocks/element/__like-zone/element__like-zone.css);
+@import url(../blocks/element/__like-counter/element__like-counter.css);
