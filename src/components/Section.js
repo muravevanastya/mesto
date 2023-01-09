@@ -6,11 +6,11 @@ constructor(renderer, containerSelector) {
 
   renderItems(items) {
     items.forEach(item => {
-      this._container.append(this._renderer(item));
+      this._renderer(item)
     })
   }
 
   addItem(element) {
-    this._container.prepend(this._renderer(element));
+    this._container.prepend(element)
   }
 }

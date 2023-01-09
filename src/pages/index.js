@@ -34,7 +34,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([info, initialCards]) => {
     userInfo.setUserInfo(info);
     userId = info._id;
-    cardsContainer.renderItems(initialCards)
+    cardsContainer.renderItems(initialCards.reverse())
   })
   .catch((err) => console.log(err))
 
@@ -81,7 +81,7 @@ function handleCardFormSubmit(inputValue) {
   popupAdd.setButtonText('Создание...');
   api.addUserCard(inputValue)
     .then(card => {
-      validationPopupAddCard.disableSubmitButton();
+      // validationPopupAddCard.disableSubmitButton();
       cardsContainer.addItem(createCard(card));
       popupAdd.close();
     })
@@ -92,10 +92,10 @@ function handleCardFormSubmit(inputValue) {
 const imageElement = new PopupWithImage('.popup_type_image');
 imageElement.setEventListeners();
 
-// const renderCard = (card) => {
-//   const cardElement = createCard(card);
-//   cardsContainer.addItem(cardElement);
-// };
+const renderCard = (card) => {
+  const cardElement = createCard(card);
+  cardsContainer.addItem(cardElement);
+};
 
 function createCard(card) {
   const cardItem = new Card(card, elementsTemplate, imageElement.open.bind(imageElement),
@@ -133,7 +133,7 @@ function createCard(card) {
   return cardElement;
 };
 
-const cardsContainer = new Section((cardItem) => createCard(cardItem), '.elements');
+const cardsContainer = new Section(renderCard, '.elements');
 
 const popupEdit = new PopupWithForm('.popup_type_edit', handleProfileFormSubmit);
 popupEdit.setEventListeners();
@@ -142,7 +142,10 @@ popupProfileOpenButton.addEventListener('click', handleProfileButtonClick);
 
 const popupAdd = new PopupWithForm('.popup_type_add', handleCardFormSubmit);
 popupAdd.setEventListeners();
-popupAddOpenButton.addEventListener('click', () => popupAdd.open());
+popupAddOpenButton.addEventListener('click', () => {
+  validationPopupAddCard.disableSubmitButton();
+  popupAdd.open();
+});
 
 const userInfo = new UserInfo('.profile__info-name', '.profile__info-text', '.profile__ellipse');
 
