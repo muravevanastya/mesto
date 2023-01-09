@@ -19,7 +19,7 @@ import {
   elementsTemplate,
   validationSettings,
   popupAvatarOpenButton
-} from '../components/constants';
+} from '../utils/constants';
 
 let userId;
 
@@ -92,24 +92,24 @@ function handleCardFormSubmit(inputValue) {
 const imageElement = new PopupWithImage('.popup_type_image');
 imageElement.setEventListeners();
 
-const renderCard = (card) => {
-  const cardElement = createCard(card);
-  cardsContainer.addItem(cardElement);
-};
+// const renderCard = (card) => {
+//   const cardElement = createCard(card);
+//   cardsContainer.addItem(cardElement);
+// };
 
 function createCard(card) {
   const cardItem = new Card(card, elementsTemplate, imageElement.open.bind(imageElement),
   () => {
-    confirmDeletePopup.setConfirmHandler(() => {
+    popupConfirmation.setConfirmHandler(() => {
       api
       .deleteCard(card._id)
       .then(() => {
         cardItem.deleteCard();
-        confirmDeletePopup.close();
+        popupConfirmation.close();
       })
       .catch(err => console.log(err));
     });
-    confirmDeletePopup.open();
+    popupConfirmation.open();
   },
   () => {
     if (!cardItem.isLiked()) {
@@ -133,7 +133,7 @@ function createCard(card) {
   return cardElement;
 };
 
-const cardsContainer = new Section(renderCard, '.elements');
+const cardsContainer = new Section((cardItem) => createCard(cardItem), '.elements');
 
 const popupEdit = new PopupWithForm('.popup_type_edit', handleProfileFormSubmit);
 popupEdit.setEventListeners();
@@ -146,8 +146,8 @@ popupAddOpenButton.addEventListener('click', () => popupAdd.open());
 
 const userInfo = new UserInfo('.profile__info-name', '.profile__info-text', '.profile__ellipse');
 
-const confirmDeletePopup = new PopupWithConfirmation('.popup_type_confirm');
-confirmDeletePopup.setEventListeners();
+const popupConfirmation = new PopupWithConfirmation('.popup_type_confirm');
+popupConfirmation.setEventListeners();
 
 const popupAvatar = new PopupWithForm('.popup_type_avatar', handleAvatarFormSubmit);
 popupAvatar.setEventListeners();
