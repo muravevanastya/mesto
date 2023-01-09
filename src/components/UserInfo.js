@@ -15,14 +15,10 @@ export default class UserInfo {
   setUserInfo({name, about}) {
     this._nameInfo.textContent = name;
     this._jobInfo.textContent = about;
-    // this._avatar.style.backgroundImage = `url(${avatar})`;
-    // this._avatar.src = avatar;
-    // this._avatar.alt = 'Аватар'
   }
 
   setUserAvatar(data) {
     this._avatar.src = data.avatar;
-    // this._avatar.style.backgroundImage = `url(${avatar})`;
     this._avatar.alt = 'Аватар';
   }
 }

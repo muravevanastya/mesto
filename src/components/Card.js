@@ -62,11 +62,6 @@ export default class Card {
     return this._newElement;
   }
 
-  // _likeCard(evt) {
-  //   const cardLike = evt.target.closest('.element__like');
-  //   cardLike.classList.toggle('element__like_active');
-  // }
-
   deleteCard() {
     this._newElement.remove();
     this._newElement = null;
@@ -85,6 +80,5 @@ export default class Card {
     if (this._newElement.querySelector('.element__delete')) {
       this._newElement.querySelector('.element__delete').addEventListener('click', () => this._handleTrashClick());
     }
-    // this._newElement.querySelector('.element__delete').addEventListener('click', () => this._handleTrashClick())
   }
 }

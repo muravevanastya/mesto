@@ -1,6 +1,5 @@
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
-// import { initialCards } from '../components/cards.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -47,38 +46,6 @@ validationPopupEditProfile.enableValidation();
 validationPopupAddCard.enableValidation();
 validationPopupAvatar.enableValidation();
 
-// function confirmDeleteCard(card) {
-//   const handleConfirmClick = (data) => {
-//     api.deleteCard(data._id)
-//       .then(() => {
-//         card.deleteCard();
-//         confirmDeletePopup.close();
-//       })
-//       .catch(err => console.log(err));
-//   }
-//   confirmDeletePopup.setConfirmHandler(handleConfirmClick);
-//   confirmDeletePopup.open()
-// };
-
-// function confirmDeleteCard(data) {
-//   popupConfirm.setConfirmHandler(() => {
-//     popupConfirm.setButtonText('Сохранение...');
-//     api.deleteCard(data._id)
-//       .then(() => {
-
-//       })
-//   })
-// }
-
-// function confirmDeleteCard(cardId, deleteCardHandler) {
-//   api.deleteCard(cardId)
-//     .then(() => {
-//       deleteCardHandler();
-//       confirmDeletePopup.close()
-//     })
-//     .catch((err) => console.log(err));
-// }
-
 function handleProfileButtonClick() {
   const userInfoObj = userInfo.getUserInfo();
   nameInput.value = userInfoObj.name;
@@ -92,11 +59,8 @@ function handleProfileFormSubmit(inputValue) {
     .then(info => {
       validationPopupEditProfile.disableSubmitButton();
       userInfo.setUserInfo(info);
-      // userInfo.setUserInfo(inputValue.name, inputValue.description);
-
       popupEdit.close();
     })
-  // popupEdit.close();
     .catch((err) => console.log(err))
     .finally(() => popupEdit.setButtonText('Сохранить'))
 };
@@ -170,7 +134,6 @@ function createCard(card) {
 };
 
 const cardsContainer = new Section(renderCard, '.elements');
-// cardsContainer.renderItems();
 
 const popupEdit = new PopupWithForm('.popup_type_edit', handleProfileFormSubmit);
 popupEdit.setEventListeners();
