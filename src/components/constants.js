@@ -1,13 +1,17 @@
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const popupAddCard = document.querySelector('.popup_type_add');
 const popupImage = document.querySelector('.popup_type_image');
+const popupConfirm = document.querySelector('.popup_type_confirm');
+const popupAvatarForm = document.querySelector('.popup_type_avatar');
 
 const popupProfileCloseButton = popupEditProfile.querySelector('.popup__close-button');
 const popupAddCloseButton = popupAddCard.querySelector('.popup__close-button');
-const imageCloseButton = popupImage.querySelector('.popup__close-button')
-const elementCloseButton =popupImage.querySelector('.popup__close-button')
+const imageCloseButton = popupImage.querySelector('.popup__close-button');
+const elementCloseButton =popupImage.querySelector('.popup__close-button');
 
-const popupEditSaveButton = popupEditProfile.querySelector('.popup__save-button')
+const popupEditSaveButton = popupEditProfile.querySelector('.popup__save-button');
+const popupAvatarSaveButton = popupEditProfile.querySelector('.popup__save-button');
+const popupAvatarOpenButton = document.querySelector('.profile__ellipse-pencil');
 
 const formEditProfile = popupEditProfile.querySelector('.popup__container');
 const nameInput = formEditProfile.querySelector('.popup__input_type_name');
@@ -32,6 +36,7 @@ const addForm = document.querySelector('.popup__form');
 
 const elementsTemplate = document.querySelector('.elements-template').content;
 const cardSection = document.querySelector('.elements');
+const elementDelete = document.querySelector('.element__delete');
 
 const popupImageTitle = popupImage.querySelector('.popup__image-title');
 const popupImageOpen = popupImage.querySelector('.popup__image-open');
@@ -49,6 +54,8 @@ export {
   popupEditProfile,
   popupAddCard,
   popupImage,
+  popupConfirm,
+  popupAvatarForm,
   popupProfileCloseButton,
   popupAddCloseButton,
   imageCloseButton,
@@ -74,5 +81,8 @@ export {
   cardSection,
   popupImageTitle,
   popupImageOpen,
-  validationSettings
+  validationSettings,
+  elementDelete,
+  popupAvatarSaveButton,
+  popupAvatarOpenButton
 };

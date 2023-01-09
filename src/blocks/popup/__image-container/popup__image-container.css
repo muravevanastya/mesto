@@ -7,8 +7,6 @@
   top: 15%;
   transform: translateX(-50%);
   max-width: max-content;
-
-  /* height: 100%; */
 }
 
 @media screen and (max-width: 1024px) {

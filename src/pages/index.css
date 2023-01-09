@@ -41,3 +41,13 @@
 @import url(../blocks/popup/__image-open/popup__image-open.css);
 @import url(../blocks/popup/_type_edit/popup_type_edit.css);
 @import url(../blocks/popup/_type_add/popup_type_add.css);
+@import url(../blocks/popup/_type_confirm/popup_type_confirm.css);
+@import url(../blocks/popup/_type_avatar/popup_type_avatar.css);
+@import url(../blocks/popup/__form-confirm/popup__form-confirm.css);
+@import url(../blocks/popup/__title-confirm/popup__title-confirm.css);
+@import url(../blocks/popup/__save-button-confirm/popup__save-button-confirm.css);
+@import url(../blocks/element/__delete/_hidden/element__delete_hidden.css);
+@import url(../blocks/popup/__input/_type/_avatar/popup__input_type_avatar.css);
+@import url(../blocks/popup/__avatar-error/popup__avatar-error.css);
+@import url(../blocks/profile/__ellipse-pencil/profile__ellipse-pencil.css);
+@import url(../blocks/profile/__avatar-wrapper/profile__avatar-wrapper.css);
