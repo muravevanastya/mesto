@@ -27,13 +27,13 @@ export default class Api {
     .then(this._checkResponse)
   }
 
-  setUserInfoApi({name, descrption}) {
+  setUserInfoApi({name, description}) {
     return fetch(this._baseUrl + '/users/me', {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
-        about: descrption
+        about: description
       })
     })
     .then(this._checkResponse)

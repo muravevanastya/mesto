@@ -12,7 +12,6 @@ import './index.css';
 import {
   popupEditProfile,
   popupAddCard,
-  popupConfirm,
   popupAvatarForm,
   nameInput,
   jobInput,
@@ -20,7 +19,6 @@ import {
   popupAddOpenButton,
   elementsTemplate,
   validationSettings,
-  elementDelete,
   popupAvatarOpenButton
 } from '../components/constants';
 
