@@ -16,8 +16,8 @@
 * Webpack
 
 ## Инструкция по запуску приложения
-* клонировать репозиторий <code>git clone https://github.com/muravevanastya/how-to-learn.git</code>
-* перейти в папку с проектом <code>cd how-to-learn</code>
+* клонировать репозиторий <code>git clone https://github.com/muravevanastya/mesto.git</code>
+* перейти в папку с проектом <code>cd mesto</code>
 * установить зависимости <code>npm install</code>
 * открыть файл <code>index.html</code>
 
