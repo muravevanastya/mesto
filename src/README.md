@@ -1,4 +1,5 @@
 # Проект "Место"
+Интерактивный веб-сайт для любителей путешествовать и для тех, кто хочет поделиться своими фотографиями
 
 ## Функциональность
 * возможность редактирования имени, описания и аватара профиля
@@ -10,11 +11,20 @@
 * валидация форм
 
 ## Технологии
-* HTML 
-* CSS
-* JavaScript (ООП)
-* Webpack
-* адаптивная вёрстка
+<div>
+  <img src="https://img.shields.io/badge/HTML5-red?style=for-the-badge&logo=HTML5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS3-teal?style=for-the-badge&logo=CSS3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-gold?style=for-the-badge&logo=JavaScript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Webpack-blue?style=for-the-badge&logo=Webpack&logoColor=white"/>
+</div>
+
+---
+
+Также использованы:
+* адаптивная вёрстка;
+* принципы ООП;
+* файловая структура в методологии БЭМ;
+* Flexbox и Grid Layout.
 
 ## Инструкция по запуску приложения
 * клонировать репозиторий <code>git clone https://github.com/muravevanastya/mesto.git</code>
