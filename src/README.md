@@ -14,6 +14,7 @@
 * CSS
 * JavaScript (ООП)
 * Webpack
+* адаптивная вёрстка
 
 ## Инструкция по запуску приложения
 * клонировать репозиторий <code>git clone https://github.com/muravevanastya/mesto.git</code>
